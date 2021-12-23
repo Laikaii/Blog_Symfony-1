@@ -34,6 +34,7 @@ class Category
      */
     private $articles;
 
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
