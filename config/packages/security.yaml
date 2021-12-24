@@ -47,4 +47,8 @@ security:
     role_hierarchy: 
         ROLE_USER : ['IS_AUTHENTICATED_FULLY']
         ROLE_ADMIN : ['ROLE_USER']
+    role_hierarchy:
+        
+        ROLE_USER : ['IS_AUTHENTICATED_FULLY']
+        ROLE_ADMIN : ['ROLR_USER']
         ROLE_SUPER_ADMIN : ['ROLE_ADMIN']
