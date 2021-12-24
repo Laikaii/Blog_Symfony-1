@@ -29,7 +29,7 @@ class Commentary
     private $author;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
@@ -47,6 +47,11 @@ class Commentary
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaries")
      */
     private $article;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -77,12 +82,12 @@ class Commentary
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\datetime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\datetime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
