@@ -5,12 +5,18 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\Category;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\EditArticleType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/**
+ * * Pour limiter l'accès à une route ou des actions en particulier à un rôle.
+ * @IsGranted ("ROLE_ADMIN")
+*/
 
 class DashboardController extends AbstractController
 {
@@ -40,8 +46,11 @@ class DashboardController extends AbstractController
         );
     }
 
-    /**
+    /** 
+     * Pour limiter l'accès à tout le controller et les routes qu'il contient.
+
      * @Route("/admin/supprimer/user/{id}", name="delete_user")
+     * @IsGranted ("ROLE_SUPER_ADMIN")
      * @param User $user
      * @return Response
      */
