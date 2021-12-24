@@ -48,11 +48,12 @@ class Commentary
      */
     private $article;
 
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
     }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -82,12 +83,12 @@ class Commentary
         return $this;
     }
 
-    public function getCreatedAt(): ?\datetime
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\datetime $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 

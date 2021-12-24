@@ -38,11 +38,12 @@ class CommentaryController extends AbstractController
             $entityManager->persist($commentary);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Merci pour votre commentaire'); 
-            return $this->redirectToRoute('show_article', [
-                'id'=>$article->getId()
+            $this->addFlash('success', 'Vous avez commenté l\'article');
+            return $this->redirectToRoute('show_article',[
+                'id'=> $article->getId()
             ]);
-} // end if
+           
+        } // end if
 
         return $this->render('rendered/form_commentary.html.twig', [
             'form' => $form->createView()

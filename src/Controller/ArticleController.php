@@ -170,6 +170,10 @@ class ArticleController extends AbstractController
         return $this->render('article/show_article.html.twig', [
             'article' => $article,
             'commentaries' => $commentaries,
+        $commentaries = $this->entityManager->getRepository(Commentary::class)->findBy(['article' => $singleArticle->getId()]);
+        return $this->render('article/show_article.html.twig', [
+            'article' => $article,
+            'commentaries' =>$commentaries
         ]);
     }
 

@@ -30,6 +30,8 @@ class CommentaryType extends AbstractType
                     'class' => 'd-block btn btn-warning mx-auto col-3'
                 ]
             ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
